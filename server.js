@@ -3,11 +3,26 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+// Require Session
+const session = require('express-session');
+// Require Passport
+const passport = require('passport');
+// Require Method-Override
+const methodOverride = require('method-override');
+
 require('dotenv').config();
+
+require('./config/db');
+// Require Passport Config
+require('./config/passport');
 
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const categoriesRouter = require('./routes/categories');
+const budgetsRouter = require('./routes/budgets');
+const aboutRouter = require('./routes/about');
+
 
 const app = express();
 
@@ -29,6 +44,11 @@ app.use('/users', usersRouter);
 app.use('/', categoriesRouter);
 app.use('/', budgetsRouter);
 app.use('/', aboutRouter);
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 
