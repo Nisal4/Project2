@@ -65,3 +65,7 @@ table {
   margin-right: auto;
   width: 17%;
 }
+
+.nav-link {
+  color: black;
+}
