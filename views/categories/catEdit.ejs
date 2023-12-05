@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<br>
+<h3><%= category.name %></h3>
+<br>
+<form action="/budgets/<%= budgetId %>/categories/<%= category._id %>?_method=PUT" method="POST">
+    <label>Transaction Date:
+        <input type="date" name="date" value="<%= category.date %>">
+    </label><br><br>
+    <label>Budgeted Amount:
+        <input data-type="currency" name="budgetAmt" value="<%=category.budgetAmt%>">
+    </label><br><br>
+    <label>Actual Amount:
+        <input data-type="currency" name="actualAmt" value="<%=category.actualAmt%>">
+    </label><br><br>
+    <label>Notes:
+        <input name="note" value="<%=category.note %>">
+    </label><br><br>
+    <button type="submit">Update</button>
+</form>
+<br>
+<form action="/budgets/<%= budgetId %>/categories" method="GET">
+    <button type="submit">Return to Categories</button>
+</form>
+<%- include('../partials/footer') %>

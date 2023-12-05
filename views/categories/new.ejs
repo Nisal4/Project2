@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<br>
+<h3>Enter a New Category</h3>
+<br>
+<form action="/budgets/<%=budgetId%>/categories" method="POST">
+    <label>Name/Item:
+        <select name="name">
+            <option value="Income">Income</option>
+            <option value="Rent/Mortgage" class="expense">Rent/Mortgage</option>
+            <option value="Utilities" class="expense">Utilities</option>
+            <option value="Groceries" class="expense">Groceries</option>
+            <option value="Eating Out/Restaurants" class="expense">Eating Out/Restaurants</option>
+            <option value="Transportation/Gas" class="expense">Transportation/Gas</option>
+            <option value="Phone" class="expense">Phone</option>
+            <option value="Streaming Services" class="expense">Streaming Services</option>
+            <option value="Insurance" class="expense">Insurance</option>
+            <option value="Student Loan" class="expense">Student Loan</option>
+            <option value="Car Loan" class="expense">Car Loan</option>
+            <option value="Credit Card" class="expense">Credit Card</option>
+            <option value="Memberships" class="expense">Memberships</option>
+            <option value="Other" class="expense">Other</option>
+            <option value="Savings" class="savings">Savings</option>
+        </select>
+    </label><br><br>
+    <label>Transaction Date:
+        <input type="date" name="date">
+    </label><br><br>
+    <label>Budgeted Amount:
+        <input data-type="currency" name="budgetAmt" placeholder="Enter Amount - $0.00" required>
+    </label><br><br>
+    <label>Actual Amount:
+        <input data-type="currency" name="actualAmt" placeholder="Enter Amount - $0.00" required>
+    </label><br><br>
+    <label>Notes:
+        <input name="note" placeholder="Brief Note/Description" required>
+    </label><br><br>
+    <button type="submit">Add Category</button>
+</form>
+<br>
+<p><%= errorMsg %></p>
+<form action="/budgets/<%= budgetId %>/categories" method="GET">
+    <button type="submit">Return to Categories</button>
+</form>
+
+<%- include('../partials/footer') %>

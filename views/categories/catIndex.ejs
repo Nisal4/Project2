@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+<br>
+<h2 align="center">All Categories</h2>
+<br>
+<div class="container">
+<table id="categories-table" class="table table-striped">
+    <thead align="center">
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Budget Amount</th>
+        <th>Actual Amount</th>
+        <th>Note</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% categories.forEach(function(c) { %>
+            <tr>
+              <td><%= c.name %></td>
+              <td><%= c.date %></td>
+              <td>$<%= c.budgetAmt.toFixed(2) %></td>
+              <td>$<%= c.actualAmt.toFixed(2) %></td>
+              <td><%= c.note %></td>
+              <td>
+                <form action="/budgets/<%= budgetId %>/categories/<%= c._id %>/edit" method="GET">
+                  <button type="submit">EDIT</button>
+                </form>
+              </td>
+              <td>
+                <form action="/budgets/<%= budgetId %>/categories/<%= c._id%>?_method=DELETE" method="POST">
+                  <button type="submit">DELETE</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <br>
+      <form action="/budgets/<%= budgetId %>/categories/new" method="GET">
+        <button type="submit">Add New Category</button>
+      </form>
+      <br>
+      <form action="/budgets/<%= budgetId %>" method="GET">
+        <button type="submit">Return to Budget</button>
+      </form>
+      <br>
+  </div>
+<%- include('../partials/footer') %>
