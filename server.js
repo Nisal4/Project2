@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 // Require Method-Override
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 const app = express();
 
