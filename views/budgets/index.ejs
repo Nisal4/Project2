@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<br>
+<div class="budget-home">
+<h2><u>My Budgets</u></h2>
+    <ul>
+      <br>
+      <% budgets.forEach(function(b) { %>
+        <li>
+          <td><a href="/budgets/<%= b._id %>"><%= b.month %> <%= b.year %></td>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+    <br>
+    <div class="budget-button">
+    <form action="/budgets/new" method="GET">
+      <button type="submit">Create Budget</button>
+    </form>
+    </div>
+    <br>
+
+<%- include('../partials/footer') %>

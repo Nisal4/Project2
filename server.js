@@ -10,22 +10,19 @@ const passport = require('passport');
 // Require Method-Override
 const methodOverride = require('method-override');
 
+const app = express();
+
 require('dotenv').config();
 
 require('./config/db');
 // Require Passport Config
 require('./config/passport');
 
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const categoriesRouter = require('./routes/categories');
 const budgetsRouter = require('./routes/budgets');
 const aboutRouter = require('./routes/about');
-
-
-const app = express();
-
 
 
 
@@ -39,17 +36,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Mount Session
+app.use(session({
+  secret: 'secret-key-shhhh',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Mount Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Add this middleware BELOW passport middleware
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+// Mount Method-Override
+app.use(methodOverride('_method'));
+
+
+// Mount Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', categoriesRouter);
 app.use('/', budgetsRouter);
 app.use('/', aboutRouter);
-
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 
 
 // catch 404 and forward to error handler
@@ -67,6 +80,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;

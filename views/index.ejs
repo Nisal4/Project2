@@ -1,13 +1,13 @@
 <%- include('./partials/header') %>
-<div>
-
-</div>
 <br><br>
 <% if (user) { %>
-    <h2 align="center">Welcome  <%=user.name%>!</h2>
-<% } else { %>
-    <h3 align="center">Empowering individuals to take control of their finances and
-        achieve their financial goals.</h3>
-<% } %>
+  <h2 align="center">Welcome  <%=user.name%>!</h2>
+  <% } else { %>
+    <h1 align="center">Track, Plan, and Save with Money Minder.</h1>
+    <% } %>
+    <br><br>
+    <div>
+      <img src="https://media.istockphoto.com/id/1214054918/vector/budget-management-app-personal-financial-control-cash-flow-tiny-woman-manages-the-personal.jpg?s=612x612&w=0&k=20&c=kPffn0lXROiTyEdrzXRNSb5bsnatjJgldNC4NAcAeWo=" class="img-home">
+    </div>
 
-<%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
