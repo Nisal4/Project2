@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('./partials/header') %>
+<div>
+
+</div>
+<br><br>
+<% if (user) { %>
+    <h2 align="center">Welcome  <%=user.name%>!</h2>
+<% } else { %>
+    <h3 align="center">Empowering individuals to take control of their finances and
+        achieve their financial goals.</h3>
+<% } %>
+
+<%- include('./partials/footer') %>
