@@ -1,6 +1,9 @@
 <%- include('../partials/header') %>
-
+<br>
+<div class="about-header3">
 <h3>Create New Budget</h3>
+</div>
+<div class="budget-forms">
 <form action="/budgets" method="POST">
     <label>Month:
         <select name="month" class="month">
@@ -17,7 +20,8 @@
             <option value="November">November</option>
             <option value="December">December</option>
         </select>
-    </label><br><br>
+    </label>
+    <br><br>
     <label>Year:
         <select name="year" class="month">
             <option value="2023">2023</option>
@@ -32,6 +36,7 @@
     </label><br><br>
     <button type="submit">Create New Budget</button>
 </form>
+</div>
 <p><%= errorMsg %></p>
-
+</div>
 <%- include('../partials/footer') %>

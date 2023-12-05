@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <br>
+<div class="about-header3">
 <h3>Enter a New Category</h3>
 <br>
 <form action="/budgets/<%=budgetId%>/categories" method="POST">
@@ -42,5 +43,5 @@
 <form action="/budgets/<%= budgetId %>/categories" method="GET">
     <button type="submit">Return to Categories</button>
 </form>
-
+</div>
 <%- include('../partials/footer') %>

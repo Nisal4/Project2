@@ -69,3 +69,10 @@ table {
 .nav-link {
   color: black;
 }
+
+.budget-forms {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17%;
+}
